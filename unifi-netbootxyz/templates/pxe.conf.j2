@@ -5,7 +5,7 @@
 # Configuration of PXE boot for '
 
 # The boot filename, Server name, Server Ip Address
-dhcp-boot=netboot.xyz.kpxe,netboot.xyz,{{ server_ip }}
+dhcp-boot=netboot.xyz.kpxe,netboot.xyz,{{ pxe_server }}
 
 # inspect the vendor class string and match the text to set the tag
 dhcp-vendorclass=BIOS,PXEClient:Arch:00000
@@ -14,7 +14,7 @@ dhcp-vendorclass=UEFI,PXEClient:Arch:00007
 dhcp-vendorclass=UEFI64,PXEClient:Arch:00009
 
 # Set the boot file name based on the matching tag from the vendor class (above)
-dhcp-boot=net:UEFI32,netboot.xyz.efi,netboot.xyz,{{ server_ip }}
-dhcp-boot=net:BIOS,netboot.xyz.kpxe,netboot.xyz,{{ server_ip }}
-dhcp-boot=net:UEFI64,netboot.xyz.efi,netboot.xyz,{{ server_ip }}
-dhcp-boot=net:UEFI,netboot.xyz.efi,netboot.xyz,{{ server_ip }}
+dhcp-boot=net:UEFI32,netboot.xyz.efi,netboot.xyz,{{ pxe_server }}
+dhcp-boot=net:BIOS,netboot.xyz.kpxe,netboot.xyz,{{ pxe_server }}
+dhcp-boot=net:UEFI64,netboot.xyz.efi,netboot.xyz,{{ pxe_server }}
+dhcp-boot=net:UEFI,netboot.xyz.efi,netboot.xyz,{{ pxe_server }}

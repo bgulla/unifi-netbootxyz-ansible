@@ -6,22 +6,12 @@
 
 - name: Deploy PXE configuration file
   ansible.builtin.template:
-    src: "files/pxe.conf"
+    src: "templates/pxe.conf.j2"
     dest: /run/dnsmasq.conf.d/pxe.conf
     owner: root
     group: root
     mode: '0644'
-  vars:
-    server_ip: "{{ pxe_server_ip }}"  # Use the variable from your inventory
-  notify: restart dnsmasq
+  # vars:
+  #   server_ip: "{{ pxe_server_ip }}"  # Use the variable from the playbook.yml file
+  notify: restart_dnsmasq
 
-- name: Remove dnsmasq PID file (cleanup before restart)
-  ansible.builtin.file:
-    path: /run/dnsmasq.pid
-    state: absent
-  ignore_errors: yes  # In case the file does not exist
-
-# handlers:
-# - name: restart dnsmasq
-#   ansible.builtin.shell: "kill $(cat /run/dnsmasq.pid)"
-#   ignore_errors: yes  # In case dnsmasq is not running

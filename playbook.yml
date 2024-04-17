@@ -1,4 +1,12 @@
 #!/usr/bin/ansible-playbook
+
+#  _   _ ____  __  __     __  ____   _______
+# | | | |  _ \|  \/  |    \ \/ /\ \ / /__  /
+# | | | | | | | |\/| |_____\  /  \ V /  / /
+# | |_| | |_| | |  | |_____/  \   | |  / /_
+#  \___/|____/|_|  |_|    /_/\_\  |_| /____|
+#
+
 - name: Run the common role against some hosts
   hosts:
     - unifi_udm
@@ -8,3 +16,5 @@
     - name: Install the baseline
       include_role:
         name: unifi-netbootxyz
+  vars:
+    pxe_server: '10.69.5.217' # THIS IS WHAT YOU NEED TO SET TO YOUR NETBOOT.XYZ INSTANCE
