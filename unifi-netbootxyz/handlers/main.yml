@@ -1,0 +1,5 @@
+---
+# handlers file for unifi-netbootxyz
+- name: restart dnsmasq
+  ansible.builtin.shell: "kill $(cat /run/dnsmasq.pid)"
+  ignore_errors: yes  # In case dnsmasq is not running

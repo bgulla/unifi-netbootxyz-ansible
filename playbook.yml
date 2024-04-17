@@ -1,0 +1,10 @@
+#!/usr/bin/ansible-playbook
+- name: Run the common role against some hosts
+  hosts:
+    - unifi_udm
+  gather_facts: true
+  become: yes
+  tasks:
+    - name: Install the baseline
+      include_role:
+        name: unifi-netbootxyz
